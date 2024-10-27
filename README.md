@@ -23,7 +23,7 @@ Out Of Memory (OOM) error. The easiest way to avoid it is either decrease the nu
 of the 3D LR segmented sub-volume (managed in the BatchMaker). 
 However, it is crusual to use the sub-volumes of size large enough to contain at least 2 different grains (and their contact)
 
-To use ```python --DPP as False ```, your model should fit into single GPU for a particular batch size. 
+To use ```--DPP as False ```, your model should fit into single GPU for a particular batch size. 
 In this case, if you have several available GPUs, you can run training with Distributed Data Parallel (DDP). To do so, keep --DDP as True
 
 The bottom line is, using the presented approach for different materials in different resolutions requires individual tuning to manage memory requirements
