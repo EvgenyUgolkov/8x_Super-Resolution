@@ -1,5 +1,6 @@
 #############################################################
- IMPORTANT!
+IMPORTANT!
+
 Credits for developing the algorithm and providing the code goes to the Amir Dahari, Steve Kench, Isaac Squires, and Samuel J. Cooper from the Dyson School 
 of Design Engineering, Imperial College London, London SW7 2DB, UK, E-mail: a.dahari@imperial.ac.uk; samuel.cooper@imperial.ac.uk
 Their main repository can be found in https://github.com/tldr-group/SuperRes at https://github.com/tldr-group/SuperRes
