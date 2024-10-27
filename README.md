@@ -5,7 +5,7 @@ Their main repository can be found in https://github.com/tldr-group/SuperRes at 
 
 Our modifications to the code include:
  1. Increasing the Generator and Discriminator Networks
- 2. Distributing the Generator model into 3 GPUS with the Distributed Data Parallel functionality
+ 2. Distributing the Generator model into 3 GPUs with the Distributed Data Parallel functionality
  3. Minor refinements and additional comments regarding the functionality
 
 
