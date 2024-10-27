@@ -25,7 +25,9 @@ To use ```--DPP``` as ```False```, your model should fit into single GPU for a p
 In this case, if you have several available GPUs, you can run training with Distributed Data Parallel (DDP). To do so, keep ```--DDP ```as ```True```.
 
 The bottom line is, using the presented approach for different materials in different resolutions requires individual tuning to manage memory requirements
-and performance capability.
+and performance.  
+
+Recommended to use the provided environment   
 
 The training can be launched with the following command
 
