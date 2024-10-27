@@ -19,7 +19,7 @@ even with DPP we had to significantly reduce the number of parameters in the Gen
 Even though in this particular example we finished with inputs of size 32^3 voxels, some types of rocks may require inputs of larger size. 
 To use DPP, keep the ```--DPP``` as ```True```
 
-If you are limited with the number of available GPUs, or if your don't need DPP for training, keep the ```--DPP``` as ```False```. In this case, you may experience the Out Of Memory (OOM) error. The easiest way to avoid it is either to decrease the number of parameters (channels) in the Generator, either reduce the input size of the 3D LR segmented sub-volume (managed in the BatchMaker). 
+If you are limited with the number of available GPUs, or if your don't need DPP for training, keep the ```--DPP``` as ```False```. In this case, you may experience the Out Of Memory (OOM) error. The easiest way to avoid it is either to decrease the number of parameters (channels) in the Generator, either to reduce the input size of the 3D LR segmented sub-volume (managed in the BatchMaker). 
 However, it is crusual to use the sub-volumes of size large enough to contain at least 2 different grains (and their contact)
 
 To use ```--DPP``` as ```False```, your model should fit into single GPU for a particular batch size. 
