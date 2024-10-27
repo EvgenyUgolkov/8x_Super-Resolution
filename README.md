@@ -27,9 +27,9 @@ In this case, if you have several available GPUs, you can run training with Dist
 The bottom line is, using the presented approach for different materials in different resolutions requires individual tuning to manage memory requirements
 and performance.  
 
-Recommended to use the provided environment   
+It's recommended to use the provided environment.   
 
-The training can be launched with the following command
+The training can be launched with the following command:
 
 ```
 torchrun Architecture_PIPE.py -d 8x_Super-Resolution --with_rotation -phases_idx 1 2 3 -sf 8 -g_image_path Berea_CT_full.tiff -d_image_path Berea_CSLM_clay_gen.tif --DPP True --DDP False
