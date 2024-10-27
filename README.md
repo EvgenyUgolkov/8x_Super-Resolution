@@ -31,6 +31,6 @@ and performance capability.
 
 The training can be launched with the following command
 
-'''
+```
 torchrun Architecture_PIPE.py -d 8x_Super-Resolution --with_rotation -phases_idx 1 2 3 -sf 8 -g_image_path Berea_CT_full.tiff -d_image_path Berea_CSLM_clay_gen.tif --DPP True --DDP False
-'''
+```
