@@ -1,4 +1,3 @@
-#############################################################
 IMPORTANT!
 
 Credits for developing the algorithm and providing the code goes to the Amir Dahari, Steve Kench, Isaac Squires, and Samuel J. Cooper from the Dyson School 
@@ -9,7 +8,7 @@ Our modifications to the code include:
  1. Increasing the Generator and Discriminator Networks
  2. Distributing the Generator model into 3 GPUS with the Distributed Data Parallel functionality
  3. Minor refinements and additional comments regarding the functionality
-#############################################################
+
 
 Our main contribution is the adjustment of the 8x Super-Resolution algorithm for the segmented 3D micro-CT images of rocks. 
 All details are provided in the attached paper.
