@@ -7,8 +7,8 @@ Their main repository can be found in https://github.com/tldr-group/SuperRes at 
 
 # Contribution
 Our modifications to the code include:
- 1. Increasing the Generator and Discriminator Networks
- 2. Training on the larger sub-volumes due to the nature of rock materials (larger grains require large images)
+ 1. Increasing Generator and Discriminator Networks
+ 2. Training on larger sub-volumes due to the nature of rock materials (larger grains require large images)
  3. Distributing the Generator model into 3 GPUs with the Distributed Data Parallel functionality
  4. Minor refinements and additional comments regarding the functionality
 
