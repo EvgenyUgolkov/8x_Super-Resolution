@@ -12,7 +12,7 @@ Our modifications to the code include:
  3. Distributing the Generator model into 3 GPUs with the Distributed Data Parallel functionality
  4. Minor refinements and additional comments regarding the functionality
 
-Our main contribution is the adjustment of the 8x Super-Resolution algorithm for the segmented 3D micro-CT images of rocks. In this example, we prepared the training dataset and tuned the model for Berea sandstone 
+Our main contribution is the adjustment of the 8x Super-Resolution algorithm for the segmented 3D micro-CT images of rocks. In this example, we prepared the training dataset and tuned the model for Berea sandstone. Below, we demonstrate the performance of the model. As input, we took the Low-Resolution image, and as output, we produced Super-Resolution image.
 
 ![Super-Resolution results for Berea sandstone](GH_image/GH_1.png)  
 ![Super-Resolution results for Berea sandstone](GH_image/GH_2.png)
