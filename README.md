@@ -8,10 +8,12 @@ Their main repository can be found in https://github.com/tldr-group/SuperRes at 
 # Contribution
 Our modifications to the code include:
  1. Increasing the Generator and Discriminator Networks
- 2. Distributing the Generator model into 3 GPUs with the Distributed Data Parallel functionality
- 3. Minor refinements and additional comments regarding the functionality
+ 2. As a result, training on the larger sub-volumes
+ 3. Distributing the Generator model into 3 GPUs with the Distributed Data Parallel functionality
+ 4. Minor refinements and additional comments regarding the functionality
 
-Our main contribution is the adjustment of the 8x Super-Resolution algorithm for the segmented 3D micro-CT images of rocks. 
+Our main contribution is the adjustment of the 8x Super-Resolution algorithm for the segmented 3D micro-CT images of rocks.
+
 All details are provided in the attached paper.
 
 In this work, the 3D Generator was trained with the Distributed Pipeline Parallel (DPP) functionality. This way, the 3D Generator model was distributed into
