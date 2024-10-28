@@ -5,11 +5,11 @@ of Design Engineering, Imperial College London, London SW7 2DB, UK.
 Their publication in Advanced Energy Materials: https://onlinelibrary.wiley.com/doi/epdf/10.1002/aenm.202202407     
 Their main repository can be found in https://github.com/tldr-group/SuperRes at https://github.com/tldr-group/SuperRes
 
+# Contribution
 Our modifications to the code include:
  1. Increasing the Generator and Discriminator Networks
  2. Distributing the Generator model into 3 GPUs with the Distributed Data Parallel functionality
  3. Minor refinements and additional comments regarding the functionality
-
 
 Our main contribution is the adjustment of the 8x Super-Resolution algorithm for the segmented 3D micro-CT images of rocks. 
 All details are provided in the attached paper.
