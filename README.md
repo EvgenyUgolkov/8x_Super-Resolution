@@ -14,6 +14,8 @@ Our modifications to the code include:
 
 Our main contribution is the adjustment of the 8x Super-Resolution algorithm for the segmented 3D micro-CT images of rocks.  
 
+![Super-Resolution results for Berea sandstone](GH_image/final_new_GH.png)
+
 All details are provided in the attached paper.
 
 In this work, the 3D Generator was trained with the Distributed Pipeline Parallel (DPP) functionality. This way, the 3D Generator model was distributed into
