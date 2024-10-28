@@ -43,10 +43,16 @@ torchrun Architecture_PIPE.py -d 8x_Super-Resolution --with_rotation -phases_idx
 ```
 where  
 
-```-d``` The name of the directory to save the Generator in, under the 'progress' directory    
+```-d``` The name of the directory to save the Generator in, under the 'progress' directory   
+
 ```--with_rotation``` Use this option for data augmentaion (rotations and mirrors) of the High-Resolution input    
+
 ```-phases_idx``` The indices of the phases of the Low-Resolution input to be compared with the Super-Resolution output  
+
 ```-g_image_path``` Relative path to the Low-Resolution 3D volume inside ![data](data)  
+
 ```-d_image_path``` Relative path to the High-Resolution 2D slice inside ![data](data)  
+
 ```--DPP``` The flag to turn on/off the Distributed Pipeline Parallel (DPP)  
+
 ```--DDP``` The flag to turn on/off the Distributed Data Parallel (DDP)  
