@@ -31,15 +31,15 @@ However, it is crusual to use the sub-volumes of size large enough to contain at
 To use ```--DPP``` as ```False```, your model should fit into single GPU for a particular batch size. 
 In this case, if you have several available GPUs, you can run training with Distributed Data Parallel (DDP). To do so, keep ```--DDP ```as ```True```.  
 
-3. As Low-Resolution input, the algorithm uses 3D .tiff files. As High-Resolution ground truth, the algorithm uses a stack of 2D images, also in the .tiff format. Each value in these images represent a particular phase. In this example, we have a similar number of phases in Low-Resolution and High-Resolution images. However, the number of phases in High-Resolution dataset can be more (but not less) than in Low-Resolution dataset. In this case, the algorithm will try to insert the missing phases based on the High-Resolution example  
+4. As Low-Resolution input, the algorithm uses 3D .tiff files. As High-Resolution ground truth, the algorithm uses a stack of 2D images, also in the .tiff format. Each value in these images represent a particular phase. In this example, we have a similar number of phases in Low-Resolution and High-Resolution images. However, the number of phases in High-Resolution dataset can be more (but not less) than in Low-Resolution dataset. In this case, the algorithm will try to insert the missing phases based on the High-Resolution example  
 
-4. Keep 3D Low-Resolution and 2D High-Resolution datasets in the ![data](data) folder  
+5. Keep 3D Low-Resolution and 2D High-Resolution datasets in the ![data](data) folder  
 
-5. You should understand that this approach is not a magic wand. Using the presented algorithm for different materials in different resolutions requires individual tuning (sometimes significant) of input size and model size to manage memory requirements and generating performance.  
+6. You should understand that this approach is not a magic wand. Using the presented algorithm for different materials in different resolutions requires individual tuning (sometimes significant) of input size and model size to manage memory requirements and generating performance.  
 
-6. For convenience, you may use the provided environment.   
+7. For convenience, you may use the provided environment.   
 
-7. The training can be launched with the following command:
+8. The training can be launched with the following command:
 
 ```
 torchrun Architecture_PIPE.py -d 8x_Super-Resolution --with_rotation -phases_idx 1 2 3 -sf 8 -g_image_path Berea_CT_full.tiff -d_image_path Berea_CSLM_clay_gen.tif --DPP True --DDP False
