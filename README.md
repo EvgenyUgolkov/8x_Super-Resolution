@@ -20,8 +20,8 @@ Our main contribution is the adjustment of the 8x Super-Resolution algorithm for
 
 All details are provided in the attached paper.
 
-In this work, the 3D Generator was trained with the Distributed Pipeline Parallel (DPP) functionality. This way, the 3D Generator model was distributed into
-three A100 GPUs. Such modification allowed us to experiment with inputs of size 64^3 voxels and outputs of size 512^3 (8x times larger). However, in this case, even with DPP we had to significantly reduce the number of parameters in the Generator model.
+# Implementation  
+In this work, the 3D Generator was trained with the Distributed Pipeline Parallel (DPP) functionality. This way, the 3D Generator model was distributed into three A100 GPUs. Such modification allowed us to experiment with inputs of size 64^3 voxels and outputs of size 512^3 (8x times larger). However, in this case, even with DPP we had to significantly reduce the number of parameters in the Generator model.
 Even though in this particular example we finished with inputs of size 32^3 voxels, some types of rocks may require inputs of larger size. 
 To use DPP, keep the ```--DPP``` as ```True```.
 
