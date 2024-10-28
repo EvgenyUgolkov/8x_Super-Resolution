@@ -14,7 +14,7 @@ Our modifications to the code include:
 
 Our main contribution is the adjustment of the 8x Super-Resolution algorithm for the segmented 3D micro-CT images of rocks.  
 
-![Super-Resolution results for Berea sandstone](GH_image/final_new_GH.png)
+![Super-Resolution results for Berea sandstone](GH_image/GH_1.png)
 
 All details are provided in the attached paper.
 
