@@ -31,10 +31,9 @@ However, it is crusual to use the sub-volumes of size large enough to contain at
 To use ```--DPP``` as ```False```, your model should fit into single GPU for a particular batch size. 
 In this case, if you have several available GPUs, you can run training with Distributed Data Parallel (DDP). To do so, keep ```--DDP ```as ```True```.
 
-The bottom line is, using the presented approach for different materials in different resolutions requires individual tuning to manage memory requirements
-and performance.  
+The bottom line is, using the presented approach for different materials in different resolutions requires individual tuning of input size and model size to manage memory requirements and generating performance.  
 
-It's recommended to use the provided environment.   
+For convenience, you may use the provided environment.   
 
 The training can be launched with the following command:
 
