@@ -32,7 +32,7 @@ However, it is crusual to use the sub-volumes of size large enough to contain at
 
 5. Keep 3D Low-Resolution and 2D High-Resolution datasets in the ![data](data) folder  
 
-6. You should understand that this approach is not a magic wand. Using the presented algorithm for different materials in different resolutions requires individual tuning (sometimes significant) of input size and model size to manage memory requirements and generating performance.  
+6. This approach is not a magic wand. Using the presented algorithm for different materials in different resolutions requires individual tuning (sometimes significant) of input size and model size to manage memory requirements and generating performance.  
 
 7. For convenience, you may use the provided environment.   
 
