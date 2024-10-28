@@ -61,4 +61,6 @@ where
 # Evaluation  
 To use the pre-trained Generator for processing Low-Resolution image, use  
 
-```torchrun Evaluation.py -d 8x_Super-Resolution -volume_size_to_evaluate 256 256 256 -g_image_path small.tif -n_phases 4 --DPP True --DDP False```
+```
+torchrun Evaluation.py -d 8x_Super-Resolution -volume_size_to_evaluate 256 256 256 -g_image_path small.tif -n_phases 4 --DPP True --DDP False
+```
