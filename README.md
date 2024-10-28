@@ -16,6 +16,7 @@ Our main contribution is the adjustment of the 8x Super-Resolution algorithm for
 
 ![Super-Resolution results for Berea sandstone](GH_image/GH_1.png)  
 ![Super-Resolution results for Berea sandstone](GH_image/GH_2.png)
+![Super-Resolution results for Berea sandstone](GH_image/GH_3.png)
 
 All details are provided in the attached paper.
 
