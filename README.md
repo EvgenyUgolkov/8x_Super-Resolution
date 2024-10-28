@@ -41,3 +41,9 @@ However, it is crusual to use the sub-volumes of size large enough to contain at
 ```
 torchrun Architecture_PIPE.py -d 8x_Super-Resolution --with_rotation -phases_idx 1 2 3 -g_image_path Berea_CT_full.tiff -d_image_path Berea_CSLM_clay_gen.tif --DPP True --DDP False
 ```
+where  
+```-d``` The name of the directory to save the generator in, under the 'progress' directory.  
+```--with_rotation``` Use this option for data augmentaion (rotations and mirrors) of the high-res input.  
+```-phases_idx``` The indices of the phases of the low-res input to be compared with the super-res output.  
+```-g_image_path``` Relative path to the low-res 3D volume inside ![data](data)
+```-d_image_path``` Relative path to the high-res 2D slice inside ![data](data)
