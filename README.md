@@ -33,7 +33,7 @@ In this case, if you have several available GPUs, you can run training with Dist
 
 3. As Low-Resolution input, the algorithm uses 3D .tiff files. As High-Resolution ground truth, the algorithm uses a stack of 2D images, also in the .tiff format. Each value in these images represent a particular phase. In this example, we have a similar number of phases in Low-Resolution and High-Resolution images. However, the number of phases in High-Resolution dataset can be more (but not less) than in Low-Resolution dataset. In this case, the algorithm will try to insert the missing phases based on the High-Resolution example  
 
-4. Keep 3D Low-Resolution and 2D High-Resolution datasets in the !(data) folder  
+4. Keep 3D Low-Resolution and 2D High-Resolution datasets in the ![dataset folder](data) folder  
 
 5. You should understand that this approach is not a magic wand. Using the presented algorithm for different materials in different resolutions requires individual tuning (sometimes significant) of input size and model size to manage memory requirements and generating performance.  
 
