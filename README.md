@@ -1,6 +1,6 @@
 # Important  
 Credits for developing the algorithm and providing the code go to the Amir Dahari, Steve Kench, Isaac Squires, and Samuel J. Cooper from the Dyson School 
-of Design Engineering, Imperial College London, London SW7 2DB, UK  
+of Design Engineering, Imperial College London, London SW7 2DB, UK.    
 
 Their publication in Advanced Energy Materials: https://onlinelibrary.wiley.com/doi/epdf/10.1002/aenm.202202407    
 Their E-mail: a.dahari@imperial.ac.uk; samuel.cooper@imperial.ac.uk  
