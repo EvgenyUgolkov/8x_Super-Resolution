@@ -36,7 +36,8 @@ However, it is crusual to use the sub-volumes of size large enough to contain at
 
 7. For convenience, you may use the provided environment.   
 
-8. The training can be launched from the ![code](code) fodler with the following command:
+# Training
+The training can be launched from the ![code](code) fodler with the following command:
 
 ```
 torchrun Architecture_PIPE.py -d 8x_Super-Resolution --with_rotation -phases_idx 1 2 3 -g_image_path Berea_CT_full.tiff -d_image_path Berea_CSLM_clay_gen.tif --DPP True --DDP False
