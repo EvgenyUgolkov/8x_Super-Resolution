@@ -73,3 +73,12 @@ To use the pre-trained Generator for processing Low-Resolution image, launch the
 ```
 torchrun Evaluation.py -d 8x_Super-Resolution -volume_size_to_evaluate 256 256 256 -g_image_path small.tif -n_phases 4 --DPP True
 ```
+where  
+
+```-d``` The name of the directory under the 'progress' directory where the pre-trained Generator parameters were saved  
+ 
+```-volume_size_to_evaluate``` The size of the Low-Resolution volume to be Super-Resolved  
+
+```-g_image_path``` Relative path to the Low-Resolution image to Super-Resolve inside ![data](data)  
+
+```--DPP``` The flag indicating if the Distributed Pipeline Parallel (DPP) was used for training 
