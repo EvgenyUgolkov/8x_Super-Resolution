@@ -53,19 +53,19 @@ torchrun Architecture_PIPE.py -d 8x_Super-Resolution --with_rotation -phases_idx
 ```
 where  
 
-```-d``` The name of the directory to save the Generator in, under the 'progress' directory   
+```-d``` The name of the directory to save the Generator in, under the 'progress' directory,     
 
-```--with_rotation``` Use this option for data augmentaion (rotations and mirrors) of the High-Resolution input    
+```--with_rotation``` Use this option for data augmentaion (rotations and mirrors) of the High-Resolution input,      
 
-```-phases_idx``` The indices of the phases of the Low-Resolution input to be compared with the Super-Resolution output  
+```-phases_idx``` The indices of the phases of the Low-Resolution input to be compared with the Super-Resolution output,    
 
-```-g_image_path``` Relative path to the Low-Resolution 3D volume inside ![data](data)  
+```-g_image_path``` Relative path to the Low-Resolution 3D volume inside ![data](data),    
 
-```-d_image_path``` Relative path to the High-Resolution 2D slice inside ![data](data)  
+```-d_image_path``` Relative path to the High-Resolution 2D slice inside ![data](data),    
 
-```--DPP``` The flag to turn on/off the Distributed Pipeline Parallel (DPP)  
+```--DPP``` The flag to turn on/off the Distributed Pipeline Parallel (DPP),    
 
-```--DDP``` The flag to turn on/off the Distributed Data Parallel (DDP)  
+```--DDP``` The flag to turn on/off the Distributed Data Parallel (DDP);    
 
 # Evaluation  
 To use the pre-trained Generator for processing Low-Resolution image, launch the following command from the ![code](code) folder 
@@ -75,10 +75,12 @@ torchrun Evaluation.py -d 8x_Super-Resolution -volume_size_to_evaluate 256 256 2
 ```
 where  
 
-```-d``` The name of the directory under the 'progress' directory where the pre-trained Generator parameters were saved  
+```-d``` The name of the directory under the 'progress' directory where the pre-trained Generator parameters were saved,    
  
-```-volume_size_to_evaluate``` The size of the Low-Resolution volume to be Super-Resolved  
+```-volume_size_to_evaluate``` The size of the Low-Resolution volume to be Super-Resolved,    
 
-```-g_image_path``` Relative path to the Low-Resolution image to Super-Resolve inside ![data](data)  
+```-g_image_path``` Relative path to the Low-Resolution image to Super-Resolve inside ![data](data),    
 
-```--DPP``` The flag indicating if the Distributed Pipeline Parallel (DPP) was used for training 
+```-n_phases``` The number of phases in High-Resolution dataset,    
+
+```--DPP``` The flag indicating if the Distributed Pipeline Parallel (DPP) was used for training;   
