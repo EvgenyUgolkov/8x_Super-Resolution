@@ -17,8 +17,7 @@ modes = ['bilinear', 'trilinear']
 def return_args(parser):
     parser.add_argument('-d', '--directory', type=str, default='default',
                         help='Stores the progress output in the directory name given')
-    parser.add_argument('-sf', '--scale_factor', type=float, default=4,
-                        help='scale factor between high res and low res.')
+    parser.add_argument('-sf', '--scale_factor', type=float, default=8, help='scale factor between high res and low res.')
     parser.add_argument("--down_sample", default=False, action="store_true",
                         help="Down samples the input for G for testing purposes.")
     parser.add_argument("--super_sampling", default=True,
@@ -67,6 +66,9 @@ def return_args(parser):
                         help='The coefficient of the pixel distance loss added to the cost of G.')
     parser.add_argument('-g_epoch_id', type=str, default='', help='Since '
                         'more than 1 G is saved during a run, specific G can be chosen for evaluation')
+    parser.add_argument("--DPP", default=False, action="store_true", help="Enables Distributed Pipeline Parallel")
+    parser.add_argument("--DDP", default=False, action="store_true", help="Enables Distributed Data Parallel")
+    parser.add_argument('-n_phases', type=int, default=4, help='Number of phases for Evaluation algorithm')
     args, unknown = parser.parse_known_args()
     return args
 

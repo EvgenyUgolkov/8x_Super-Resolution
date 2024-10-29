@@ -54,30 +54,54 @@ def return_D_nets(ngpu, n_dims, device, lr, beta1, anisotropic, D_images, scale_
 class Generator3D(nn.Module):
     def __init__(self, nc_g, nc_d, scale_factor):
         super(Generator3D, self).__init__()
-        ### Layers below will be distributed into GPU 1 ###
+        ### Layers below will be distributed into GPU 1 if DPP###
         self.conv_1 = nn.Conv3d(nc_g, 512, 3, stride=1, padding=1)
         self.bn_1 = nn.BatchNorm3d(512)
-        #ReLU
-        #ResBlock
-        #Upsample
+        self.ReLU_1 = nn.ReLU()
+        self.ResBlock_1 = ResidualBlock(nn.Conv3d(512, 512, 3, stride=1, padding=1), 
+                                        nn.BatchNorm3d(512), 
+                                        nn.ReLU(), 
+                                        nn.Conv3d(512, 512, 3, stride=1, padding=1),
+                                        nn.BatchNorm3d(512))
+        self.Upsample_1 = nn.Upsample(scale_factor=2, mode=modes[1])
         self.conv_2 = nn.Conv3d(512, 256, 3, stride=1, padding=1)
         self.bn_2 = nn.BatchNorm3d(256)
-        #ReLU
-        ### Layers below will be distributed into GPU 2 ###
+        self.ReLU_2 = nn.ReLU()
+        ### Layers below will be distributed into GPU 2 if DPP###
         self.trans_1 = nn.ConvTranspose3d(256, 128, 4, 2, 1)
         self.bn_trans_1 = nn.BatchNorm3d(128)
-        #ReLU
+        self.ReLU_3 = nn.ReLU()
         self.conv_3 = nn.Conv3d(128, 64, 3, stride=1, padding=1)
         self.bn_3 = nn.BatchNorm3d(64)
-        #ReLU
-        ### Layers below will be distributed into GPU 3 ###
-        #Upsample
+        self.ReLU_4 = nn.ReLU()
+        ### Layers below will be distributed into GPU 3 if DPP###
+        self.Upsample_2 = nn.Upsample(scale_factor=2, mode=modes[1])
         self.conv_4 = nn.Conv3d(64, 32, 3, stride=1, padding=1) 
         self.bn_4 = nn.BatchNorm3d(32)
-        #ReLU
+        self.ReLU_5 = nn.ReLU()
         self.conv_end = nn.Conv3d(32, nc_d, 3, stride=1, padding=1)
 
     def forward(self, x):
+        x = self.conv_1(x)
+        x = self.bn_1(x)
+        x = self.ReLU_1(x)
+        x = self.ResBlock_1(x)
+        x = self.Upsample_1(x)
+        x = self.conv_2(x)
+        x = self.bn_2(x)
+        x = self.ReLU_2(x)
+        x = self.trans_1(x)
+        x = self.bn_trans_1(x)
+        x = self.ReLU_3(x)
+        x = self.conv_3(x)
+        x = self.bn_3(x)
+        x = self.ReLU_4(x)
+        x = self.Upsample_2(x)
+        x = self.conv_4(x)
+        x = self.bn_4(x)
+        x = self.ReLU_5(x)
+        x = self.conv_end(x)
+        x = nn.Softmax(dim=1)(x)
         return x
 
 class ResidualBlock(nn.Module):
