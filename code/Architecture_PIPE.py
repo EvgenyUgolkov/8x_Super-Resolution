@@ -30,12 +30,8 @@ from torch.nn.parallel import DistributedDataParallel
 from torch.distributed.pipeline.sync import Pipe
 modes = ['bilinear', 'trilinear']
 
-# Initialize the distributed backend for the Distributed Pipeline Parallel implementation
-dist.init_process_group(backend='nccl')
-torch.distributed.rpc.init_rpc('worker', rank=0, world_size=1)
-
 # Exiting the curernt directory to access training datasetand other execution .py files
-if os.getcwd().endswith('code_berea_32_new_x8_D128_loss100'):
+if os.getcwd().endswith('code'):
     os.chdir('..')
 
 # Parsing arguments:
@@ -51,6 +47,12 @@ D_dimensions_to_check, scale_f = args.d_dimensions_to_check, args.scale_factor
 rotation, anisotropic = args.with_rotation, args.anisotropic
 rotations_bool, down_sample = args.rotations_bool, args.down_sample
 super_sampling = args.super_sampling
+DPP = args.DPP
+DDP = args.DDP
+
+if DPP:# Initialize the distributed backend for the Distributed Pipeline Parallel implementation
+    dist.init_process_group(backend='nccl')
+    torch.distributed.rpc.init_rpc('worker', rank=0, world_size=1)
 
 # Define / create a folder for storing the trained models 
 if not os.path.exists(ImageTools.progress_dir + progress_dir):
@@ -157,14 +159,20 @@ if __name__ == '__main__':
     # nearest-neighbor interpolation, either downsampling with the Gaussian convolution. "super-sampling" controlls, which one is implemented
     down_sample_object = LearnTools.DownSample(n_dims, to_low_idx, scale_f, device, super_sampling).to(device)
     
-    # Define the Generator model. This one is implemented with the Distributed Pipeline Parallel and 3 GPUs
-    model_G = Networks_PIPE.G_PP(device, nc_g, nc_d, BM_G.scale_factor)
+    # Define the Generator model
+    if DPP: #This one is implemented with the Distributed Pipeline Parallel and 3 GPUs
+        model_G = Networks_PIPE.G_PP(device, nc_g, nc_d, BM_G.scale_factor)
+    else:
+        model_G = Networks_PIPE.Generator3D(nc_g, nc_d, scale_factor).to(device)
+
+    # Making the parameters of the Generator model trackable by the weights and biases
     wandb.watch(model_G, log='all')
 
     # If you don't need Distributed Pipeline Parallel implementation, create your own 3D Generator netwotk, define it in line 163, delete line 199,
     # and run the code below
-    # if (device.type == 'cuda') and (ngpu > 1):
-    #     model_G = nn.DataParallel(model_G, list(range(ngpu)))
+    if DPP == False and DDP == True:
+        if (device.type == 'cuda') and (ngpu > 1):
+            model_G = nn.DataParallel(model_G, list(range(ngpu)))
 
     # Setup Adam optimizers for G
     optimizerG = optim.Adam(model_G.parameters(), lr=lr, betas=(beta1, 0.999))
@@ -194,9 +202,10 @@ if __name__ == '__main__':
         # Generate fake image batch with G
         crop = 8
         RREF = model_G(input_to_G)
-        BACK = RREF.to_here() # this line is here because of the DPP functionality
-        with_edges = BACK
-        without_edges = BACK[..., crop:-crop, crop:-crop, crop:-crop] # the image is cropped to avoid artifacts from the Convolutional layers
+        if DPP:
+            RREF = RREF.to_here() # this line is here because of the DPP functionality
+        with_edges = RREF
+        without_edges = RREF[..., crop:-crop, crop:-crop, crop:-crop] # the image is cropped to avoid artifacts from the Convolutional layers
         if detach_output:
             return input_to_G, with_edges.detach(), without_edges.detach()
         else:
