@@ -35,7 +35,7 @@ However, it is crusual to use the sub-volumes of size large enough to contain at
 6. This approach is not a magic wand. Using the presented algorithm for different materials in different resolutions requires individual tuning (sometimes significant) of input size and model size to manage memory requirements and generating performance.
 
 # Environment  
-For convenience, you may use the provided environment.yml file as follow:  
+For convenience, you may use the provided ```environment.yml``` file as follow:  
 1. Create a new environment from the .yml file:
 ```
 conda env create -f environment.yml
