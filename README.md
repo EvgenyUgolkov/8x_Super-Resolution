@@ -84,3 +84,6 @@ where
 ```-n_phases``` The number of phases in High-Resolution dataset,    
 
 ```--DPP``` The flag indicating if the Distributed Pipeline Parallel (DPP) was used for training;   
+
+# Pre-trained model  
+Pre-trained model for Berea sandstone can be found in ![progress/8x_Super-Resolution](progress/8x_Super-Resolution) folder
